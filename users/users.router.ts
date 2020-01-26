@@ -6,7 +6,7 @@ class UsersRouter extends Router {
   applyRoutes(application: restify.Server){
 
     application.get('/users', (req, resp, next)=>{
-      User.findAll().then(users=>{
+      User.find().then(users=>{
         resp.json(users)
         return next()
       })
@@ -18,7 +18,6 @@ class UsersRouter extends Router {
           resp.json(user)
           return next()
         }
-
         resp.send(404)
         return next()
       })
