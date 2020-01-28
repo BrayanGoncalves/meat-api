@@ -40,7 +40,7 @@ class UsersRouter extends Router {
       User.update({_id: req.params.id}, req.body, options)
           .exec().then(result=>{
         if(result.n){
-          return User.findById(req.params.id)
+          return <any>User.findById(req.params.id)
         } else{
           throw new NotFoundError('Documento não encontrado')
         }
